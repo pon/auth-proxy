@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/pon/auth-proxy/issues"
   },
-  "homepage": "https://github.com/pon/auth-proxy"
+  "homepage": "https://github.com/pon/auth-proxy",
+  "dependencies": {
+    "hapi": "^6.0.2",
+    "hapi-auth-basic": "^1.1.0"
+  },
+  "devDependencies": {
+    "lab": "^3.2.1"
+  }
 }
