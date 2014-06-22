@@ -1,0 +1,24 @@
+{
+  "name": "auth-proxy",
+  "version": "0.0.0",
+  "description": "Simple proxy that uses basic auth to limit access to server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pon/auth-proxy.git"
+  },
+  "keywords": [
+    "hapi",
+    "proxy",
+    "auth"
+  ],
+  "author": "Peter Nagel",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/pon/auth-proxy/issues"
+  },
+  "homepage": "https://github.com/pon/auth-proxy"
+}
