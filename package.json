@@ -4,7 +4,7 @@
   "description": "Simple proxy that uses basic auth to limit access to server",
   "main": "index.js",
   "scripts": {
-    "test": "lab"
+    "test": "lab -c -C -v"
   },
   "repository": {
     "type": "git",
