@@ -69,4 +69,27 @@ Lab.experiment('db', function () {
       done();
     });
   });
+
+  Lab.experiment('getDbInstance', function () {
+    var dbPath = __dirname + '/../../data/getTest.sqlite3';
+
+    Lab.before(function (done) {
+      var database = db.createEmptyDb('getTest.sqlite3', done);
+    });
+
+    Lab.test('should get a db instance when it exists', function (done) {
+      db.getDbInstance('getTest.sqlite3', function (err, database) {
+        Lab.expect(err).to.equal(null);
+        Lab.expect(database.open).to.equal(true);
+        done();
+      });
+    });
+
+    Lab.after(function (done) {
+      if (fs.existsSync(dbPath)) {
+        fs.unlinkSync(dbPath);
+      }
+      done();
+    });
+  });
 });
