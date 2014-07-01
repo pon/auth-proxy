@@ -4,7 +4,7 @@
   "description": "Simple proxy that uses basic auth to limit access to server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "lab"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
   "homepage": "https://github.com/pon/auth-proxy",
   "dependencies": {
     "hapi": "^6.0.2",
-    "hapi-auth-basic": "^1.1.0"
+    "hapi-auth-basic": "^1.1.0",
+    "sqlite3": "^2.2.3"
   },
   "devDependencies": {
     "lab": "^3.2.1"
