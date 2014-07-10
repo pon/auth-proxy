@@ -4,7 +4,8 @@
   "description": "Simple proxy that uses basic auth to limit access to server",
   "main": "index.js",
   "scripts": {
-    "test": "lab -c -C -v"
+    "test": "gulp test",
+    "enforce": "gulp enforce"
   },
   "repository": {
     "type": "git",
@@ -25,9 +26,18 @@
     "hapi": "^6.0.2",
     "hapi-auth-basic": "^1.1.0",
     "sqlite3": "^2.2.3",
-    "bcrypt": "^0.7.8"
+    "bcrypt": "^0.7.8",
+    "bluebird": "^2.2.1"
   },
   "devDependencies": {
-    "lab": "^3.2.1"
+    "gulp": "^3.8.6",
+    "gulp-istanbul": "^0.2.0",
+    "gulp-istanbul-enforcer": "^1.0.3",
+    "gulp-load-plugins": "^0.5.3",
+    "gulp-mocha": "^0.5.0",
+    "istanbul": "^0.3.0",
+    "mocha": "^1.20.1",
+    "chai": "^1.9.1",
+    "yargs": "^1.2.6"
   }
 }
