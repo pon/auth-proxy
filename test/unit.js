@@ -5,10 +5,6 @@ var Promise   = require('bluebird');
 var bcrypt    = require('bcrypt');
 var sqlite3   = require('sqlite3');
 
-chai
-.use(require('chai-as-promised'))
-.use(require('chai-things'));
-
 describe('auth', function () {
   describe('validate', function () {
 
@@ -25,18 +21,25 @@ describe('auth', function () {
       });
     });
 
-    it('should fulfill for a valid user/pw', function () {
-      return expect(auth.validate('user', 'pw')).to.be.fulfilled;
+    it('should be true for a valid user/pw', function (done) {
+      auth.validate('user', 'pw', function (res) {
+        expect(res).to.eql.true;
+        done();
+      });
     });
 
-    it('should reject with user does not exist for bad username', function () {
-      return expect(auth.validate('baduser', 'pw'))
-        .to.be.rejectedWith(auth.UserDoesNotExistError);
+    it('should be false for bad username', function (done) {
+      auth.validate('baduser', 'pw', function (res) {
+        expect(res).to.eql(false);
+        done();
+      });
     });
 
-    it('should reject with user and bad pw', function () {
-      return expect(auth.validate('user', 'badpw'))
-        .to.be.rejectedWith(auth.InvalidPasswordError);
+    it('should reject with user and bad pw', function (done) {
+      auth.validate('user', 'badpw', function (res) {
+        expect(res).to.eql(false);
+        done();
+      });
     });
   });
 });
