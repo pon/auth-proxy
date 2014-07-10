@@ -9,9 +9,9 @@ var sqlite3   = require('sqlite3');
 gulp.task('test', function () {
   return gulp.src(['test/unit.js'])
   .pipe(plugins.mocha({
-    reporter: 'spec'
-  }))
-  .pipe(plugins.istanbul.writeReports());
+    reporter: 'spec',
+    grep: argv.grep
+  }));
 });
 
 gulp.task('createdb', function (done) {
@@ -28,13 +28,10 @@ gulp.task('createdb', function (done) {
 gulp.task('adduser', function (done) {
   var pHash = Promise.promisify(bcrypt.hash);
   var db = new sqlite3.Database('data/db.sqlite3');
-  return Promise.all([
-    pHash(argv.username, 8),
-    pHash(argv.password, 8)
-  ])
-  .spread(function (usernameHash, passwordHash) {
+  return pHash(argv.password, 8)
+  .then(function (passwordHash) {
     db.run('INSERT INTO users (username, password) VALUES ($username, $password)', {
-      $username: usernameHash,
+      $username: argv.username,
       $password: passwordHash
     });
   });
